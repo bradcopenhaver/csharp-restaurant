@@ -61,7 +61,7 @@ namespace  RestaurantDirectory
       Restaurant newRestaurant = new Restaurant("Harry's Mexican", 4);
       newRestaurant.Save();
       //Act
-      newRestaurant.Edit("Jose's Mexican");
+      newRestaurant.Edit("Jose's Mexican", "", "", "");
       Restaurant foundRestaurant = Restaurant.Find(newRestaurant.GetId());
 
       //Assert

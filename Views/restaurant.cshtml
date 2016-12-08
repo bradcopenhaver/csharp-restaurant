@@ -7,9 +7,11 @@
     <h1>Restaurant Directory</h1>
     <h2>Restaurant you fancy right now</h2>
     <h3>@Model.GetName()</h3>
-      <h4>* @Model.GetCuisineId() *</h4>
+    <h4>* @Model.GetCuisineName() *</h4>
 
-    <h4>Various details about @Model.GetName() are coming soon!</h4>
+    <h4>@Model.GetAddress()</h4>
+    <h4>@Model.GetWebsite()</h4>
+    <h4>@Model.GetPhone()</h4>
 
     <hr>
     <h5><a href="/modify/restaurant/@Model.GetId()">Modify this Restaurant</a></h5>

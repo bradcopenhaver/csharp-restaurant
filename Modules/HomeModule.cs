@@ -27,7 +27,7 @@ namespace RestaurantDirectory
         return View["restaurant_form.cshtml", allCuisines];
       };
       Post["/add/restaurant"] = _ =>{
-        Restaurant newRestaurant = new Restaurant(Request.Form["restaurant_name"], Request.Form["cuisine_id"]);
+        Restaurant newRestaurant = new Restaurant(Request.Form["restaurant_name"], Request.Form["cuisine_id"], Request.Form["restaurant_address"], Request.Form["restaurant_website"], Request.Form["restaurant_phone"]);
         newRestaurant.Save();
         List<Cuisine> allCuisines = Cuisine.GetAll();
         return View["index.cshtml", allCuisines];
@@ -73,9 +73,8 @@ namespace RestaurantDirectory
       };
       Patch["/modify/restaurant/{id}"] = parameters =>{
         var currentRestaurant = Restaurant.Find(parameters.id);
-        List<Restaurant> allRestaurants = Restaurant.GetAll();
-        currentRestaurant.Edit(Request.Form["restaurant_name"]);
-        return View["index.cshtml", allRestaurants];
+        currentRestaurant.Edit(Request.Form["restaurant_name"], Request.Form["restaurant_address"], Request.Form["restaurant_website"], Request.Form["restaurant_phone"]);
+        return View["restaurant.cshtml", currentRestaurant];
       };
     }
   }

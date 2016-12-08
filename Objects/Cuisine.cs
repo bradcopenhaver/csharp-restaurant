@@ -145,13 +145,16 @@ namespace RestaurantDirectory.Objects
       cmd.Parameters.Add(cuisineIdParameter);
       SqlDataReader rdr = cmd.ExecuteReader();
 
-      while (rdr.Read())
+      while(rdr.Read())
       {
-        int id = rdr.GetInt32(0);
-        string name = rdr.GetString(1);
-        int cuisine_id = rdr.GetInt32(2);
+        int foundRestaurantId = rdr.GetInt32(0);
+        string foundRestaurantName = rdr.GetString(1);
+        int foundRestaurantCuisineId = rdr.GetInt32(2);
+        string foundRestaurantAddress = rdr.GetString(3);
+        string foundRestaurantWebsite = rdr.GetString(4);
+        string foundRestaurantPhone = rdr.GetString(5);
 
-        Restaurant newRestaurant = new Restaurant(name, cuisine_id, id);
+        Restaurant newRestaurant = new Restaurant(foundRestaurantName, foundRestaurantCuisineId, foundRestaurantAddress, foundRestaurantWebsite, foundRestaurantPhone, foundRestaurantId);
         foundRestaurants.Add(newRestaurant);
       }
       if(rdr != null)
