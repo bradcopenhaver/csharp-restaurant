@@ -205,7 +205,7 @@ namespace RestaurantDirectory.Objects
         new SqlParameter("@address", newAddress),
         new SqlParameter("@website", newWebsite),
         new SqlParameter("@phone", newPhone),
-        new SqlParameter("@RestaurantId", this.GetCuisineId())
+        new SqlParameter("@RestaurantId", this.GetId())
       };
 
       cmd.Parameters.AddRange(insertParameters);
